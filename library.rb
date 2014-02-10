@@ -68,16 +68,17 @@ class Library
   def check_out_book(book_id, borrower)
     if borrower.booknumber  > 1
       nil
-    else books.each do |x|
-      if x.id == book_id
-        borrower.booknumber += 1
-        x.borrower = borrower
-        if x.check_out
-          return x
-        else 
-          return nil
+    else 
+      books.each do |x|
+        if x.id == book_id
+          borrower.booknumber += 1
+          x.borrower = borrower
+          if x.check_out
+            return x
+          else 
+            return nil
+          end
         end
-      end
       end
     end
   end
